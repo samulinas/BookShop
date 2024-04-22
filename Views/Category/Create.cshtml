@@ -1,0 +1,29 @@
+﻿@model BookShop.Models.Category
+
+@{
+    ViewData["Title"] = "Create Category";
+}
+
+<form asp-action="Create" method="post">
+    <h1 class="text-info pl-3">Додання категорії</h1>
+    <br>
+    <div class="col-4">
+        <label asp-for="Name"></label>
+    </div>
+    <div class="col-8">
+        <span asp-validation-for="Name" class="text-danger"></span>
+        <input asp-for="Name" class="form-control">
+    </div>
+    <br>
+    <div class="col-4">
+        <label asp-for="DisplayOrder"></label>
+    </div>
+    <div class="col-8">
+        <span asp-validation-for="DisplayOrder" class="text-danger"></span>
+        <input asp-for="DisplayOrder" class="form-control">
+    </div>
+    <br>
+    <div class="col-8">
+        <input type="submit" class="btn btn-success w-100" value="Додати">
+    </div>
+</form>
