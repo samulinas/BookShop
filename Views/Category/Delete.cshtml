@@ -1,18 +1,19 @@
 ﻿@model BookShop.Models.Category
 
 @{
-    ViewData["Title"] = "Create Category";
+    ViewData["Title"] = "Delete Category";
 }
 
-<form asp-action="Create" method="post">
-    <h1 class="text-info pl-3">Додання категорії</h1>
+<form asp-action="DeletePost" method="post">
+    <h1 class="text-info pl-3">Видалення категорії</h1>
+    <input asp-for="Id" hidden>
     <br>
     <div class="col-4">
         <label asp-for="Name"></label>
     </div>
     <div class="col-8">
         <span asp-validation-for="Name" class="text-danger"></span>
-        <input asp-for="Name" class="form-control">
+        <input asp-for="Name" class="form-control" disabled>
     </div>
     <br>
     <div class="col-4">
@@ -20,11 +21,11 @@
     </div>
     <div class="col-8">
         <span asp-validation-for="DisplayOrder" class="text-danger"></span>
-        <input asp-for="DisplayOrder" class="form-control">
+        <input asp-for="DisplayOrder" class="form-control" disabled>
     </div>
     <br>
     <div class="col-8">
-        <input type="submit" class="btn btn-success w-100" value="Додати">
+        <input type="submit" class="btn btn-success w-100" value="Видалити">
         <br><br>
         <a asp-action="Index" class="btn btn-success w-100">Назад</a>
     </div>
