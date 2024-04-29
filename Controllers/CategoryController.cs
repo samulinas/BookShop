@@ -13,8 +13,11 @@ namespace BookShop.Controllers
         }
         public IActionResult Index()
         {
-            IEnumerable<Category> objList = _db.Category;
-            return View(objList);
+            if (_db != null) { 
+                IEnumerable<Category> objList = _db.Category; 
+                return View(objList);
+            }
+            return View();
         }
 
         // GET CREATE

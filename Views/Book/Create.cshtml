@@ -1,0 +1,77 @@
+﻿@model BookShop.Models.Book
+
+@{
+    ViewData["Title"] = "Create Book";
+}
+
+<form asp-action="Create" method="post">
+    <h1 class="text-info pl-3">Додання книги</h1>
+
+    <br>
+
+    <div class="col-4">
+        <label asp-for="Name"></label>
+    </div>
+    <div class="col-8">
+        <span asp-validation-for="Name" class="text-danger"></span>
+        <input asp-for="Name" class="form-control">
+    </div>
+
+    <br>
+
+    <div class="col-4">
+        <label asp-for="Author"></label>
+    </div>
+    <div class="col-8">
+        <span asp-validation-for="Author" class="text-danger"></span>
+        <input asp-for="Author" class="form-control">
+    </div>
+
+    <br>
+
+    <div class="col-4">
+        <label asp-for="Publisher"></label>
+    </div>
+    <div class="col-8">
+        <span asp-validation-for="Publisher" class="text-danger"></span>
+        <input asp-for="Publisher" class="form-control">
+    </div>
+
+    <br>
+
+    <div class="col-4">
+        <label asp-for="Year"></label>
+    </div>
+    <div class="col-8">
+        <span asp-validation-for="Year" class="text-danger"></span>
+        <input asp-for="Year" class="form-control">
+    </div>
+
+    <br>
+
+    <div class="col-4">
+        <label asp-for="Quantity"></label>
+    </div>
+    <div class="col-8">
+        <span asp-validation-for="Quantity" class="text-danger"></span>
+        <input asp-for="Quantity" class="form-control">
+    </div>
+
+    <br>
+
+@*     <div class="col-4">
+        <label asp-for="CategoryId"></label>
+    </div>
+    <div class="col-8">
+        <span asp-validation-for="CategoryId" class="text-danger"></span>
+        <input asp-for="CategoryId" class="form-control">
+    </div> *@
+
+    <br>
+
+    <div class="col-8">
+        <input type="submit" class="btn btn-success w-100" value="Додати">
+        <br><br>
+        <a asp-action="Index" class="btn btn-success w-100">Назад</a>
+    </div>
+</form>
