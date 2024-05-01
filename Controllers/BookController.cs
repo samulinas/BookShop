@@ -1,5 +1,6 @@
 ﻿using BookShop.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace BookShop.Controllers
 {
@@ -15,7 +16,11 @@ namespace BookShop.Controllers
         {
             if (_db != null)
             {
-                IEnumerable<Book> objList = _db.Book;
+                IEnumerable<Book>? objList = _db.Book;
+                foreach (var obj in objList)
+                {
+                    obj.Category = _db.Category.FirstOrDefault(u => u.Id == obj.CategoryId);
+                }
                 return View(objList);
             }
             return View();
@@ -24,6 +29,12 @@ namespace BookShop.Controllers
         // GET CREATE
         public IActionResult Create()
         {
+            IEnumerable<SelectListItem> CategoryDropDown = _db.Category.Select(i => new SelectListItem
+            {
+                Text = i.Name,
+                Value = i.Id.ToString()
+            });
+            ViewBag.CategoryDropDown = CategoryDropDown;
             return View();
         }
 
@@ -44,6 +55,12 @@ namespace BookShop.Controllers
         // GET UPDATE
         public IActionResult Update(int? id)
         {
+            IEnumerable<SelectListItem> CategoryDropDown = _db.Category.Select(i => new SelectListItem
+            {
+                Text = i.Name,
+                Value = i.Id.ToString()
+            });
+            ViewBag.CategoryDropDown = CategoryDropDown;
             if (id == null || id == 0)
             {
                 return NotFound();

@@ -21,7 +21,7 @@
             <th>Видавництво</th>
             <th>Рік випуску</th>
             <th>Кількість сторінок</th>
-            @*<th>Категорія</th> *@
+            <th>Категорія</th>
             <th>Дії</th>
         </tr>
         @foreach (var obj in Model)
@@ -29,11 +29,10 @@
             <tr>
                 <td>@obj.Name</td>
                 <td>@obj.Author</td>
-
                 <td>@obj.Publisher</td>
                 <td>@obj.Year</td>
                 <td>@obj.Quantity</td>
-             @*    <td>@obj.CategoryId</td> *@
+                <td>@obj?.Category?.Name</td>
                 <td>
                     <a asp-controller="Book" asp-action="Update" asp-route-Id="@obj.Id" class="btn btn-primary m-1"><i class="fa-regular fa-pen-to-square"></i> Оновити</a>
                     <a asp-controller="Book" asp-action="Delete" asp-route-Id="@obj.Id" class="btn btn-danger m-1"><i class="fa-solid fa-trash"></i> Видалити</a>

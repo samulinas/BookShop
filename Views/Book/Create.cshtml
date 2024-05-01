@@ -59,13 +59,15 @@
 
     <br>
 
-@*     <div class="col-4">
+    <div class="col-4">
         <label asp-for="CategoryId"></label>
     </div>
     <div class="col-8">
         <span asp-validation-for="CategoryId" class="text-danger"></span>
-        <input asp-for="CategoryId" class="form-control">
-    </div> *@
+        <select asp-for="CategoryId" asp-items="@ViewBag.CategoryDropDown" class="form-control">
+            <option disabled selected>--Оберіть категорію--</option>
+        </select>
+    </div>
 
     <br>
 

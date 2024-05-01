@@ -22,17 +22,15 @@ namespace BookShop.Models
         public string? Publisher { get; set; }
 
         [Required(ErrorMessage = "Введіть значення для поля!")]
-        //[StringLength(4)]
         [DisplayName("Рік випуску")]
         public int Year { get; set; }
 
         [Required(ErrorMessage = "Введіть значення для поля!")]
-        //[StringLength(5)]
         [DisplayName("Кількість сторінок")]
         public int Quantity { get; set; }
 
-        //[DisplayName("Категорія")]
-        //public int CategoryId { get; set; }
+        [DisplayName("Категорія")]
+        public int CategoryId { get; set; }
 
         [ForeignKey("CategoryId")]
         public virtual Category? Category { get; set; }
